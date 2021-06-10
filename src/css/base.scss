@@ -1,17 +1,45 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
 $primary-background: #256e82;
-$font: 'Merriweather';
+$main-font: 'Merriweather';
 $big-font-size: 50px;
+$med-font-size: 35px;
 
 ;
 
 body {
   background: $primary-background;
+  font-family: 'Montserrat', sans-serif;
 }
 
 h1 {
-  font-family: $font;
+  font-family: $main-font; //mixin -- import
   font-weight: 500;
   font-style: italic;
   font-size: $big-font-size;
+}
+
+h2 {
+  font-family: $main-font; //mixin -- import
+  font-weight: 500;
+  font-style: italic;
+  font-size: $med-font-size;
+}
+
+li {
+  list-style: none;
+}
+
+section {
+  background-color: white;
+}
+
+header {
+  background-color: grey;
+}
+
+label, input {
+  display: block;
+}
+.hidden {
+  display: none;
 }
