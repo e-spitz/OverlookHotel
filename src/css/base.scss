@@ -25,6 +25,12 @@ h2 {
   font-size: $med-font-size;
 }
 
+h3 {
+  font-family: $main-font;
+  font-weight: 500;
+  font-style: italic;
+}
+
 li {
   list-style: none;
 }
@@ -40,6 +46,7 @@ header {
 label, input {
   display: block;
 }
-.hidden {
-  display: none;
-}
+
+// .hidden {
+//   display: none;
+// }

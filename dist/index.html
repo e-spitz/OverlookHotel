@@ -12,38 +12,60 @@
   <title>the overlook</title>
 </head>
 <body>
-  <h1>the overlook</h1>
-  <section class="loginPage">
-     <label for="usernameLogin">Username: </label>
-     <input type="text" class="username" id="username"></input>
-     <label for="passwordLogin">Password: </label>
-     <input type="password" class="password" id="password"></input>
-     <button class="login-button">Login</button>
+  <!-- will be hidden -->
+  <h1 class="hidden">the overlook</h1>
+  <section class="loginPage hidden">
+    <!-- <img class="logo" alt="photo-here" src="./images/turing-logo.png"> -->
+    <p>please sign in</p>
+   <label for="usernameLogin">username: </label>
+   <input type="text" class="username" id="username"></input>
+   <label for="passwordLogin">password: </label>
+   <input type="password" class="password" id="password"></input>
+   <button class="login-button">login</button>
    </section>
-   <section class="homepage">
+   <p class="login-error"></p>
+   <!-- will be hidden -->
+   <section class="homePage hidden">
+     <div class="main-title">
+       <h2>hi there, user</h2>
+     </div>
+     <ul class="nav-links">
+       <li><i class="fas fa-calendar-check"></i>book a room</li>
+       <li><i class="fas fa-suitcase"></i>upcoming stays</li>
+       <li><i class="fas fa-thumbs-up"></i>previous stays</li>
+       <li><i class="fas fa-dollar-sign"></i>total spent</li>
+     </ul>
+   </section>
+   <section class="bookRoom hidden">
+    <form>
+      <section class="new-stay">
+        <h3>stay with us</h3>
+        <label for="new-stay-date">select a date:</label>
+        <input type="date" id="new-stay-date" name="new-stay-date" title="You must select a date for your trip">
+        <label for="new-stay-type">select a room type:</label>
+        <select class="room-type-search">
+          <option selected="selected" value="All Available Rooms">available rooms</option>
+          <option value="Single Room">single room</option>
+          <option value="Suite">suite</option>
+          <option value="Junior Suite">junior suite</option>
+          <option value="Residential Suite">residential suite</option>
+        </select>
+      </section>
+    </form>
+   </section>
+   <section class="availableRooms hidden">
+
+   </section>
+   <section class="upcomingStays hidden">
+
+   </section>
+   <section class="previousStays hidden">
 
    </section>
 
-  <!-- <section class="login-page">
-      <div class="login-container">
-        <p class="user-login"><i class="fas fa-user"></i>username:</p>
-        <p class="password"><i class="fas fa-unlock-alt"></i>password:</p>
-      </div>
-  </section> -->
-  <!-- <header>
-    <div class="main-title">
-      <h2>welcome, user</h2>
-    </div>
-    <ul class="nav-links">
-      <li><i class="fas fa-calendar-check"></i>book a room</li>
-      <li><i class="fas fa-suitcase"></i>upcoming stays</li>
-      <li><i class="fas fa-thumbs-up"></i>previous stays</li>
-    </ul>
-    <div class="ytd-stats-container">
-      <p>YTD Total:</p>
-      <p class=
-    </div>
-  </header> -->
+
+
+
 
 
   <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
