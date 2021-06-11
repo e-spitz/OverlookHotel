@@ -1,7 +1,56 @@
 /* This is an example of using Sass, otherwise plain CSS works too*/
-$primary-background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+$primary-background: #256e82;
+$main-font: 'Merriweather';
+$big-font-size: 50px;
+$med-font-size: 35px;
+
 ;
 
 body {
   background: $primary-background;
+  font-family: 'Montserrat', sans-serif;
 }
+
+h1 {
+  font-family: $main-font; //mixin -- import
+  font-weight: 500;
+  font-style: italic;
+  font-size: $big-font-size;
+}
+
+h2 {
+  font-family: $main-font; //mixin -- import
+  font-weight: 500;
+  font-style: italic;
+  font-size: $med-font-size;
+}
+
+h3 {
+  font-family: $main-font;
+  font-weight: 500;
+  font-style: italic;
+}
+
+li {
+  list-style: none;
+}
+
+section {
+  background-color: white;
+}
+
+header {
+  background-color: black;
+}
+
+article {
+  background-color: grey;
+}
+
+label, input {
+  display: block;
+}
+
+// .hidden {
+//   display: none;
+// }

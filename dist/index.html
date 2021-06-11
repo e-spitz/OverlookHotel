@@ -4,11 +4,63 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/10ffbe374d.js" crossorigin="anonymous"></script>
+  <title>the overlook</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo" height="100px" width="100px">
-  
+  <!-- will be hidden -->
+  <h1 class="hidden">the overlook</h1>
+  <section class="loginPage hidden">
+    <!-- <img class="siteLogo" alt="site logo" src="some img path for logo"> -->
+    <p>please sign in</p>
+   <label for="usernameLogin">username: </label>
+   <input type="text" class="username" id="username"></input>
+   <label for="passwordLogin">password: </label>
+   <input type="password" class="password" id="password"></input>
+   <button class="login-button">login</button>
+   </section>
+   <p class="login-error"></p>
+   <!-- will be hidden -->
+   <main class="home hidden">
+     <section class="homeBanner hidden">
+       <div class="main-title">
+         <h2>hi there, user</h2>
+       </div>
+       <ul class="nav-links">
+         <li><i class="fas fa-calendar-check"></i>book a room</li>
+         <li><i class="fas fa-suitcase"></i>upcoming stays</li>
+         <li><i class="fas fa-thumbs-up"></i>previous stays</li>
+         <li><i class="fas fa-dollar-sign"></i>total spent</li>
+       </ul>
+     </section>
+     <section class="bookRoom hidden">
+       <form>
+         <section class="new-stay">
+           <h3>stay with us</h3>
+           <label for="new-stay-date">select a date:</label>
+           <input type="date" id="new-stay-date" name="new-stay-date" title="You must select a date for your trip">
+           <label for="new-stay-type">select a room type:</label>
+           <select class="room-type-search">
+             <option selected="selected" value="All Available Rooms">available rooms</option>
+             <option value="Single Room">single room</option>
+             <option value="Suite">suite</option>
+             <option value="Junior Suite">junior suite</option>
+             <option value="Residential Suite">residential suite</option>
+           </select>
+         </section>
+       </form>
+     </section>
+     <section class="availableRooms hidden"></section>
+     <section class="upcomingStays hidden"></section>
+     <section class="previousStays hidden"></section>
+     <section class="totalSpent hidden"></section>
+  </main>
+
+
   <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   <script src="bundle.js"></script>
 
