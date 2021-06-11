@@ -1,10 +1,15 @@
 class Booking {
-  constructor(bookings, rooms) {
-    this.bookings = bookings;
-    this.rooms = rooms;
-    this.availableRooms = []
-    this.unavailableRooms = []
-  }
+  constructor(booking) {
+  this.id = booking.id;
+  this.userID = booking.userID;
+  this.date = booking.date;
+  this.roomNumber = booking.roomNumber;
+  this.roomServiceCharges = []
+}
 }
 
 export default Booking;
+
+// bookings is bookingsData
+// rooms is roomData
+// instantiated in fetchAllData function

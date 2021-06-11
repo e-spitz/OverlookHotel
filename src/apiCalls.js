@@ -17,11 +17,15 @@ const fetchRoomsData = () => {
 }
 
 const fetchBookingsData = () => {
-    let userPromise = fetch("http://localhost:3001/api/v1/bookings")
+    return fetch("http://localhost:3001/api/v1/bookings")
         .then(response => response.json())
         .catch(err => console.log("Booking Data ERROR"))
-    return userPromise
 }
+
+// const fetchData = () => {
+//   const singleCustomerData =
+//   fetch(loggedInUser)
+//   .then(response => response.json());
 
 export {
     fetchAllData,
