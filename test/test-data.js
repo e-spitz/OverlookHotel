@@ -16,29 +16,29 @@ const testCustomers = [
 
 const testRooms = [
   {
-    "number": 1,
+    "number": 15,
     "roomType": "residential suite",
-    "bidet": true,
-    "bedSize": "queen",
-    "numBeds": 1,
-    "costPerNight": 358.4
-  },
-  {
-    "number": 2,
-    "roomType": "suite",
     "bidet": false,
     "bedSize": "full",
-    "numBeds": 2,
-    "costPerNight": 477.38
+    "numBeds": 1,
+    "costPerNight": 294.56
   },
   {
-    "number": 3,
+    "number": 24,
+    "roomType": "suite",
+    "bidet": false,
+    "bedSize": "queen",
+    "numBeds": 1,
+    "costPerNight": 327.24
+  },
+  {
+    "number": 12,
     "roomType": "single room",
     "bidet": false,
-    "bedSize": "king",
-    "numBeds": 1,
-    "costPerNight": 491.14
-  }
+    "bedSize": "twin",
+    "numBeds": 2,
+    "costPerNight": 172.09
+  },
 ]
 
 const testBookings = [

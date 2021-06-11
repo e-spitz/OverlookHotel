@@ -4,15 +4,17 @@
 // An example of how you tell webpack to use a CSS (SCSS) file
 import { fetchAllData } from './apiCalls';
 import './css/base.scss';
-
+import Customer from './customer';
+import Booking from './booking';
+import Hotel from './hotel';
+import Room from './room';
+let customer;
 let customers = [];
-let rooms= [];
+let rooms = [];
 let bookings= [];
 
 // An example of how you tell webpack to use an image (also need to link to it in the index.html)
 // import './images/turing-logo.png'
-
-console.log('This is the JavaScript entry file - your code begins here.');
 
 window.addEventListener('load', loadData)
     // receiveData()
@@ -39,10 +41,15 @@ function loadData() {
 }
 
   function createCustomers(customerData) {
-      // console.log(customerData)
     customerData.customers.forEach(customer => customers.push(customer))
-    // console.log(customers)
   }
+
+  // function generateUser(userData) {
+  //   user = new User(userData[Math.floor(Math.random() * userData.length)]);
+  //   let firstName = user.name.split(" ")[0];
+  //   userInfo.push(userData)
+  //   domUpdates.addWelcomeMessage(firstName);
+  // }
 
   function createRooms(roomData) {
     // console.log(roomData)
@@ -59,3 +66,7 @@ function loadData() {
   // function generateCustomer() {
   //   customer = new Customer
   // }
+
+  //set date
+
+  //validate username/password function

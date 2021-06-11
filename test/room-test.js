@@ -1,6 +1,6 @@
 import chai from 'chai';
-import Customer from '../src/customer'
-import Room from '../src/room'
+import Customer from '../src/Customer'
+import Room from '../src/Room'
 import { testCustomers, testRooms, testBookings } from './test-data'
 const expect = chai.expect;
 
@@ -15,3 +15,4 @@ describe('Room', () => {
     room2 = new Room(testRooms[1]);
     room3 = new Room(testRooms[2]);
   })
+})
