@@ -33,8 +33,14 @@ class Hotel {
     return availableRoom;
   }
 
+  filterRoomsByType(type) {
+    console.log(type)
+    let filteredRoom = this.rooms.filter(room => {
+      return room.roomType === type
+    })
+    console.log(filteredRoom)
+      return filteredRoom;
+  }
 }
-
- //findAvailableRooms()
 
 export default Hotel;

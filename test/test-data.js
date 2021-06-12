@@ -62,7 +62,7 @@ const testBookings = [
     "date": "2020/01/10",
     "roomNumber": 12,
     "roomServiceCharges": []
-  },
+  }
 ]
 
 export { testCustomers, testRooms, testBookings }

@@ -99,4 +99,13 @@ it('should be able to get full booking and room info for a customer', () => {
     expect(availableRoomNum2).to.deep.equal([15, 24, 12])
   })
 
+  it ('should be able to filter rooms by type', () => {
+    let room = hotel.filterRoomsByType('single room')
+    let room1 = hotel.filterRoomsByType('suite')
+    expect(room.length).to.equal(1)
+    expect(room).to.deep.equal([allRooms[2]])
+    expect(room1.length).to.equal(1)
+    expect(room1).to.deep.equal([allRooms[1]])
+  })
+
 })
