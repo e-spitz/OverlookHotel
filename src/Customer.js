@@ -7,7 +7,7 @@ class Customer {
   }
 
   findCustomerBookings(bookingData) {
-    this.bookings = bookingData.filter(booking => booking.userID === this.id)
+    return this.bookings = bookingData.filter(booking => booking.userID === this.id)
   }
 
   calculateTotalSpent(roomsData) {

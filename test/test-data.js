@@ -38,7 +38,7 @@ const testRooms = [
     "bedSize": "twin",
     "numBeds": 2,
     "costPerNight": 172.09
-  },
+  }
 ]
 
 const testBookings = [
