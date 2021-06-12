@@ -15,10 +15,18 @@ class Hotel {
       })
       return arr;
     }, [])
-    console.log(customerRooms)
     return customerRooms;
   }
+
+  findBookedRooms(date) {
+    let matchedRoom = this.bookings.filter(booking => {
+      return date === booking.date
+    }).map(room => room.roomNumber)
+    return matchedRoom;
+  }
+
 }
 
+ //findAvailableRooms()
 
 export default Hotel;

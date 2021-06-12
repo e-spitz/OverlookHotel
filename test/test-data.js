@@ -38,7 +38,7 @@ const testRooms = [
     "bedSize": "twin",
     "numBeds": 2,
     "costPerNight": 172.09
-  },
+  }
 ]
 
 const testBookings = [
@@ -62,7 +62,7 @@ const testBookings = [
     "date": "2020/01/10",
     "roomNumber": 12,
     "roomServiceCharges": []
-  }
+  },
 ]
 
 export { testCustomers, testRooms, testBookings }
