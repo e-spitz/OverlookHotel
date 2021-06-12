@@ -25,6 +25,14 @@ class Hotel {
     return matchedRoom;
   }
 
+  findAvailableRooms(date) {
+    let availableRoom = this.bookings.filter(booking => {
+      return date !== booking.date
+    }).map(room => room.roomNumber)
+    console.log(availableRoom)
+    return availableRoom;
+  }
+
 }
 
  //findAvailableRooms()

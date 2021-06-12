@@ -87,9 +87,16 @@ it('should be able to get full booking and room info for a customer', () => {
 
   it('should be able to find booked rooms on a specified date', () => {
     let bookedRoomNum = hotel.findBookedRooms('2020/01/24');
-    expect(bookedRoomNum.length).to.deep.equal(1)
+    expect(bookedRoomNum.length).to.equal(1)
     expect(bookedRoomNum).to.deep.equal([24])
-  
+  })
+
+  it ('should be able to find available rooms on a specified date', () => {
+    let availableRoomNum = hotel.findAvailableRooms('2020/01/24')
+    let availableRoomNum2 = hotel.findAvailableRooms('2020/03/14')
+    expect(availableRoomNum.length).to.equal(2)
+    expect(availableRoomNum).to.deep.equal([15, 12])
+    expect(availableRoomNum2).to.deep.equal([15, 24, 12])
   })
 
 })
