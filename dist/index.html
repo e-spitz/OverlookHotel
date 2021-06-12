@@ -12,19 +12,20 @@
   <title>the overlook</title>
 </head>
 <body>
-  <!-- will be hidden -->
-  <h1 class="hidden">the overlook</h1>
-  <section class="loginPage hidden">
-    <!-- <img class="siteLogo" alt="site logo" src="some img path for logo"> -->
-    <p>please sign in</p>
-   <label for="usernameLogin">username: </label>
-   <input type="text" class="username" id="username"></input>
-   <label for="passwordLogin">password: </label>
-   <input type="password" class="password" id="password"></input>
-   <button class="login-button">login</button>
-   </section>
-   <p class="login-error"></p>
-   <!-- will be hidden -->
+  <!-- <img src="./images/overlook-main.jpg" alt="mountain canyon overlook image"> -->
+  <h1 class="title">...the overlook</h1>
+  <p class="sign-in">please sign in</p>
+  <section class="login-page">
+    <label for="usernameLogin">username:</label>
+    <input type="text" class="username" id="username"></input>
+    <label for="passwordLogin">password:</label>
+    <input type="password" class="password" id="password"></input>
+    <button class="login-button">login</button>
+    <p class="login-error"></p>
+  </section>
+  <div class="main-img">
+    <img src="./images/overlook-main.jpg" alt="">
+  </div>
    <main class="home hidden">
      <section class="homeBanner hidden">
        <div class="main-title">
@@ -59,10 +60,6 @@
      <section class="previousStays hidden"></section>
      <section class="totalSpent hidden"></section>
   </main>
-
-
-  <!-- Do not include the index.js or main.bundle.js file here - it is done automatically by the webpack server -->
   <script src="bundle.js"></script>
-
 </body>
 </html>

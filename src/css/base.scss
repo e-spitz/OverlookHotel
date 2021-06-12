@@ -4,7 +4,14 @@ $main-font: 'Merriweather';
 $big-font-size: 50px;
 $med-font-size: 35px;
 
-;
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
 
 body {
   background: $primary-background;
@@ -15,8 +22,11 @@ h1 {
   font-family: $main-font; //mixin -- import
   font-weight: 500;
   font-style: italic;
-  font-size: $big-font-size;
+  font-size:60px;
+  padding-right: 1em;
+  padding-top: .4em;
 }
+
 
 h2 {
   font-family: $main-font; //mixin -- import
@@ -51,6 +61,43 @@ label, input {
   display: block;
 }
 
-// .hidden {
-//   display: none;
-// }
+img {
+  height: 100%;
+  width: 100%;
+}
+
+.sign-in {
+  text-align: center;
+  font-size: 25px;
+}
+
+.login-page {
+    font-size: 20px;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    // padding: .5em;
+    border-top: .1em solid black;
+    border-bottom: .1em solid black;
+}
+
+label {
+  margin: 1em .25em;
+}
+
+input {
+  margin: 1em;
+  padding: .5em;
+}
+
+.login-button {
+  margin: 1em;
+  font-size: 18px;
+  padding: .25em 2em;
+}
+
+.hidden {
+  display: none;
+}

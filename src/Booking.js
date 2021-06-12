@@ -9,7 +9,3 @@ class Booking {
 }
 
 export default Booking;
-
-// bookings is bookingsData
-// rooms is roomData
-// instantiated in fetchAllData function

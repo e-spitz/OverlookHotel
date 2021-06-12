@@ -4,6 +4,7 @@
 // An example of how you tell webpack to use a CSS (SCSS) file
 import { fetchAllData } from './apiCalls';
 import './css/base.scss';
+import './images/overlook-main.jpg'
 import Customer from './customer';
 import Booking from './booking';
 import Hotel from './hotel';
