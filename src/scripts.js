@@ -5,13 +5,14 @@
 import { fetchAllData } from './apiCalls';
 import './css/base.scss';
 import './images/overlook-main.jpg'
-import Customer from './customer';
-import Booking from './booking';
-import Hotel from './hotel';
-import Room from './room';
+import Customer from './Customer';
+import Booking from './Booking';
+import Hotel from './Hotel';
+import Room from './Room';
 
 let loginBtn = document.getElementById('loginBtn')
-let bookRoom = document.getElementById('bookRoom')
+let bookRoomLink = document.getElementById('bookRoomLink')
+let bookRoomSection = document.getElementById('bookRoom')
 let upcomingStays = document.getElementById('upcomingStays')
 let previousStays = document.getElementById('previousStays')
 let totalSpent = document.getElementById('totalSpent')
@@ -21,7 +22,8 @@ let rooms = [];
 let bookings= [];
 
 window.addEventListener('load', loadData)
-bookRoom.addEventListener('click', bookWithUs)
+bookRoomLink.addEventListener('click', displayBookRoom)
+
 
 function loadData() {
   fetchAllData()
@@ -33,21 +35,40 @@ function loadData() {
 }
 
   function createCustomers(customerData) {
-    customerData.customers.forEach(customer => customers.push(customer))
-  }
+    customerData.customers.forEach(customer => {
+      let newCustomer = new Customer(customer)
+      customers.push(newCustomer)
+      // console.log(newCustomer)
+  })
+}
 
   function createRooms(roomData) {
-    roomData.rooms.forEach(room => rooms.push(room))
+    roomData.rooms.forEach(room => {
+      let newRoom = new Room(room)
+      rooms.push(newRoom)
+      // console.log(newRoom)
+    })
   }
 
   function createBookings(bookingData) {
-    bookingData.bookings.forEach(booking => bookings.push(booking))
+    bookingData.bookings.forEach(booking => {
+      let newBooking = new Booking(booking)
+      bookings.push(newBooking)
+      // console.log(newBooking)
+    })
   }
 
-  function bookWithUs() {
-    console.log('hello')
+  function displayBookRoom() {
+    show(bookRoomSection)
   }
 
+  function show(element) {
+    element.classList.remove('hidden')
+  }
+
+  function hide(element) {
+    element.classList.add('hidden')
+  }
 
   // function generateUser(userData) {
   //   user = new User(userData[Math.floor(Math.random() * userData.length)]);
