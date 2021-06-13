@@ -12,7 +12,6 @@
   <title>the overlook</title>
 </head>
 <body>
-  <!-- <img src="./images/overlook-main.jpg" alt="mountain canyon overlook image"> -->
   <h1 class="title">...the overlook</h1>
   <p class="sign-in hidden">please sign in</p>
   <section class="login-page hidden">
@@ -53,12 +52,13 @@
              <option value="Residential Suite">residential suite</option>
            </select>
          </section>
+         <button type="button" name="button" class="search-rooms-btn" id="searchBtn">search</button>
        </form>
      </section>
-     <section class="availableRooms hidden"></section>
-     <section class="upcomingStays hidden"></section>
-     <section class="previousStays hidden"></section>
-     <section class="totalSpent hidden"></section>
+     <section class="available-rooms hidden" id="availableRooms"></section>
+     <section class="upcoming-stays hidden" id="upcomingStays"></section>
+     <section class="previous-stays hidden" id="previousStays"></section>
+     <section class="totalSpent hidden" id="totalSpent"></section>
   </main>
   <script src="bundle.js"></script>
 </body>

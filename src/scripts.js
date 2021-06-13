@@ -16,13 +16,18 @@ let bookRoomSection = document.getElementById('bookRoom')
 let upcomingStays = document.getElementById('upcomingStays')
 let previousStays = document.getElementById('previousStays')
 let totalSpent = document.getElementById('totalSpent')
+let availableRooms = document.getElementById('availableRooms')
+let searchBtn = document.getElementById('searchBtn')
 let customer;
 let customers = [];
 let rooms = [];
 let bookings= [];
+let hotel;
 
 window.addEventListener('load', loadData)
 bookRoomLink.addEventListener('click', displayBookRoom)
+searchBtn.addEventListener('click', bookARoom)
+
 
 
 function loadData() {
@@ -31,6 +36,7 @@ function loadData() {
     createCustomers(data[0]);
     createRooms(data[1]);
     createBookings(data[2]);
+    createHotel(data[2], data[1])
   })
 }
 
@@ -57,12 +63,20 @@ function loadData() {
     })
   }
 
+  function createHotel(bookingData, roomData) {
+    hotel = new Hotel(Object.values(bookingData), Object.values(roomData))
+    }
+
   function updateUserName(customer) {
     document.querySelector('#user').innerText = customer.name;
   }
 
   function displayBookRoom() {
-    show(bookRoomSection)
+    toggle(bookRoomSection)
+  }
+
+  function bookARoom() {
+    console.log(event.target)
   }
 
   function show(element) {
@@ -72,6 +86,11 @@ function loadData() {
   function hide(element) {
     element.classList.add('hidden')
   }
+
+  function toggle(element) {
+    element.classList.toggle('hidden')
+  }
+
 
   // function generateUser(userData) {
   //   user = new User(userData[Math.floor(Math.random() * userData.length)]);
