@@ -38,7 +38,8 @@ function loadData() {
     customerData.customers.forEach(customer => {
       let newCustomer = new Customer(customer)
       customers.push(newCustomer)
-      // console.log(newCustomer)
+      let randomCustomer = customers[Math.floor(Math.random() * customers.length)]
+      updateUserName(randomCustomer)
   })
 }
 
@@ -46,7 +47,6 @@ function loadData() {
     roomData.rooms.forEach(room => {
       let newRoom = new Room(room)
       rooms.push(newRoom)
-      // console.log(newRoom)
     })
   }
 
@@ -54,8 +54,11 @@ function loadData() {
     bookingData.bookings.forEach(booking => {
       let newBooking = new Booking(booking)
       bookings.push(newBooking)
-      // console.log(newBooking)
     })
+  }
+
+  function updateUserName(customer) {
+    document.querySelector('#user').innerText = customer.name;
   }
 
   function displayBookRoom() {
