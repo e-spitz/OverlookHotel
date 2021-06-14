@@ -8,9 +8,6 @@ class Customer {
 
   findCustomerBookings(bookingData) {
     return this.bookings = bookingData.filter(booking => booking.userID === this.id)
-    // const matchedBookings = bookingData.filter(booking => booking.userID === this.id)
-    // this.bookings = matchedBookings;
-    // return this.bookings;
   }
 
   calculateTotalSpent(roomsData) {
@@ -23,7 +20,7 @@ class Customer {
       })
       return sum;
     }, 0)
-    return totalSpent;
+    return totalSpent.toFixed(2);
   }
 }
 

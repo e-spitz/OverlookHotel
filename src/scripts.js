@@ -12,6 +12,8 @@ import Room from './Room';
 
 let loginBtn = document.getElementById('loginBtn')
 let bookRoomLink = document.getElementById('bookRoomLink')
+let previousStaysLink = document.getElementById('previousStaysLink')
+let totalSpentLink = document.getElementById('totalSpentLink')
 let bookRoomSection = document.getElementById('bookRoom')
 let upcomingStays = document.getElementById('upcomingStays')
 let previousStays = document.getElementById('previousStays')
@@ -30,7 +32,8 @@ window.addEventListener('load', loadData)
 bookRoomLink.addEventListener('click', displayBookRoom)
 searchBtn.addEventListener('click', bookARoom)
 availableRooms.addEventListener('click', bookNow)
-// previousStaysLink.addEventListener('click', displayPreviousStays)
+previousStaysLink.addEventListener('click', displayPreviousStays)
+totalSpentLink.addEventListener('click', showTotalSpent)
 
 
 
@@ -77,6 +80,8 @@ function loadData() {
   }
 
   function displayBookRoom() {
+    hide(previousStays)
+    hide(totalSpent)
     toggle(bookRoomSection)
   }
 
@@ -90,7 +95,6 @@ function loadData() {
 
   function displayAvailableRooms(filteredRooms) {
     availableRooms.innerHTML = ""
-    console.log(filteredRooms.length)
     if (filteredRooms.length === 0) {
     availableRooms.innerText = 'We apologize but there appear to be no rooms that meet your search criteria. Please choose a different day or room type.'
   } else {
@@ -121,9 +125,32 @@ function loadData() {
     //apiCalls.postrequestmethod()
   }
 
-  // function displayPreviousStays() {
-  //
-  // }
+  function displayPreviousStays() {
+    hide(bookRoomSection)
+    toggle(previousStays)
+    let customerHistory = currentCustomer.bookings;
+    previousStays.innerHTML = ""
+    customerHistory.map(booking => {
+      const customerBookings = `<div class="customerCard">
+      <p>Date: ${booking.date}</p>
+      <p>Room Number: ${booking.roomNumber}</p>
+      <p>Booking ID: ${booking.id}</p>
+      </div>`
+      previousStays.insertAdjacentHTML('beforeend', customerBookings)
+  })
+  }
+
+  function showTotalSpent() {
+    hide(bookRoomSection)
+    hide(previousStays)
+    // toggle(totalSpentLink)
+    totalSpentLink.innerHTML = ""
+    const total = currentCustomer.calculateTotalSpent(rooms)
+    const insertTotal = `<div>
+    $${total}
+    </div`
+    totalSpentLink.insertAdjacentHTML('beforeend', insertTotal)
+  }
 
   function show(element) {
     element.classList.remove('hidden')
@@ -136,15 +163,6 @@ function loadData() {
   function toggle(element) {
     element.classList.toggle('hidden')
   }
-
-
-
-  // function generateUser(userData) {
-  //   user = new User(userData[Math.floor(Math.random() * userData.length)]);
-  //   let firstName = user.name.split(" ")[0];
-  //   userInfo.push(userData)
-  //   domUpdates.addWelcomeMessage(firstName);
-  // }
 
 
   //set date

@@ -29,7 +29,6 @@ class Hotel {
     let availableRoom = this.bookings.filter(booking => {
       return date === booking.date
     }).map(room => room.roomNumber)
-    // console.log(availableRoom)
     return availableRoom;
   }
 
@@ -44,14 +43,13 @@ class Hotel {
     let getRoomsByType = (type === "All Available Rooms") ?
       this.rooms :
       this.filterRoomsByType(type)
-      console.log(getRoomsByType)
-      // this.rooms.filter(room => type === room.roomType)
     let getCurrentBookings = this.findAvailableRooms(date)
     console.log(getCurrentBookings)
     return getRoomsByType.filter(room => !getCurrentBookings.includes(room.number))
   }
 }
 
+// this.rooms.filter(room => type === room.roomType)
 // this.bookings.filter(booking => date === booking.date)
 
 export default Hotel;
