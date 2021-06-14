@@ -13,6 +13,7 @@ import Room from './Room';
 let loginBtn = document.getElementById('loginBtn')
 let bookRoomLink = document.getElementById('bookRoomLink')
 let previousStaysLink = document.getElementById('previousStaysLink')
+let totalSpentLink = document.getElementById('totalSpentLink')
 let bookRoomSection = document.getElementById('bookRoom')
 let upcomingStays = document.getElementById('upcomingStays')
 let previousStays = document.getElementById('previousStays')
@@ -32,6 +33,7 @@ bookRoomLink.addEventListener('click', displayBookRoom)
 searchBtn.addEventListener('click', bookARoom)
 availableRooms.addEventListener('click', bookNow)
 previousStaysLink.addEventListener('click', displayPreviousStays)
+totalSpentLink.addEventListener('click', showTotalSpent)
 
 
 
@@ -78,6 +80,8 @@ function loadData() {
   }
 
   function displayBookRoom() {
+    hide(previousStays)
+    hide(totalSpent)
     toggle(bookRoomSection)
   }
 
@@ -121,7 +125,7 @@ function loadData() {
     //apiCalls.postrequestmethod()
   }
 
-  function displayPreviousStays(bookings) {
+  function displayPreviousStays() {
     hide(bookRoomSection)
     toggle(previousStays)
     let customerHistory = currentCustomer.bookings;
@@ -134,6 +138,18 @@ function loadData() {
       </div>`
       previousStays.insertAdjacentHTML('beforeend', customerBookings)
   })
+  }
+
+  function showTotalSpent() {
+    hide(bookRoomSection)
+    hide(previousStays)
+    // toggle(totalSpentLink)
+    totalSpentLink.innerHTML = ""
+    const total = currentCustomer.calculateTotalSpent(rooms)
+    const insertTotal = `<div>
+    $${total}
+    </div`
+    totalSpentLink.insertAdjacentHTML('beforeend', insertTotal)
   }
 
   function show(element) {
