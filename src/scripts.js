@@ -18,7 +18,9 @@ let previousStays = document.getElementById('previousStays')
 let totalSpent = document.getElementById('totalSpent')
 let availableRooms = document.getElementById('availableRooms')
 let searchBtn = document.getElementById('searchBtn')
-let customer;
+let bookRoomDate = document.getElementById('bookRoomDate')
+let roomTypes = document.getElementById('roomTypes')
+let currentCustomer;
 let customers = [];
 let rooms = [];
 let bookings= [];
@@ -27,6 +29,8 @@ let hotel;
 window.addEventListener('load', loadData)
 bookRoomLink.addEventListener('click', displayBookRoom)
 searchBtn.addEventListener('click', bookARoom)
+availableRooms.addEventListener('click', bookNow)
+// previousStaysLink.addEventListener('click', displayPreviousStays)
 
 
 
@@ -44,9 +48,9 @@ function loadData() {
     customerData.customers.forEach(customer => {
       let newCustomer = new Customer(customer)
       customers.push(newCustomer)
-      let randomCustomer = customers[Math.floor(Math.random() * customers.length)]
-      updateUserName(randomCustomer)
-  })
+    })
+      currentCustomer = customers[Math.floor(Math.random() * customers.length)]
+      updateUserName(currentCustomer)
 }
 
   function createRooms(roomData) {
@@ -60,11 +64,12 @@ function loadData() {
     bookingData.bookings.forEach(booking => {
       let newBooking = new Booking(booking)
       bookings.push(newBooking)
+      currentCustomer.findCustomerBookings(bookings)
     })
   }
 
   function createHotel(bookingData, roomData) {
-    hotel = new Hotel(Object.values(bookingData), Object.values(roomData))
+    hotel = new Hotel(bookingData.bookings, roomData.rooms)
     }
 
   function updateUserName(customer) {
@@ -76,8 +81,49 @@ function loadData() {
   }
 
   function bookARoom() {
-    console.log(event.target)
+    const date = bookRoomDate.value.split('-').join('/')
+    const roomSelection = roomTypes.value;
+    let filteredRooms = hotel.filterRoomsByDateAndType(date, roomSelection);
+    show(availableRooms)
+    displayAvailableRooms(filteredRooms)
   }
+
+  function displayAvailableRooms(filteredRooms) {
+    availableRooms.innerHTML = ""
+    console.log(filteredRooms.length)
+    if (filteredRooms.length === 0) {
+    availableRooms.innerText = 'We apologize but there appear to be no rooms that meet your search criteria. Please choose a different day or room type.'
+  } else {
+    filteredRooms.map(room => {
+      if (room.bidet) {
+        room.bidet = "yes"
+      } else {
+        room.bidet = "no"
+      }
+      const roomCard = `<div class="room-card" data-id="${room.number}">
+      <p>Room Number: ${room.number}</p>
+      <p>Room Type: ${room.roomType}</p>
+      <p>Has Bidet: ${room.bidet}</p>
+      <p>Bed Size: ${room.bedSize}</p>
+      <p>Number of Beds: ${room.numBeds}</p>
+      <p>Cost Per Night: ${room.costPerNight}</p>
+      <button class="book-now-btn">Book Now</button>
+      </div>`
+      availableRooms.insertAdjacentHTML('beforeend', roomCard)
+    })
+  }
+}
+
+  function bookNow(event) {
+    if (event.target.classList.contains('book-now-btn')) {
+      let roomCardID = event.target.closest('.room-card').dataset.id
+    }
+    //apiCalls.postrequestmethod()
+  }
+
+  // function displayPreviousStays() {
+  //
+  // }
 
   function show(element) {
     element.classList.remove('hidden')
@@ -90,6 +136,7 @@ function loadData() {
   function toggle(element) {
     element.classList.toggle('hidden')
   }
+
 
 
   // function generateUser(userData) {
