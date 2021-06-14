@@ -12,10 +12,9 @@
   <title>the overlook</title>
 </head>
 <body>
-  <!-- <img src="./images/overlook-main.jpg" alt="mountain canyon overlook image"> -->
   <h1 class="title">...the overlook</h1>
-  <p class="sign-in">please sign in</p>
-  <section class="login-page">
+  <p class="sign-in hidden">please sign in</p>
+  <section class="login-page hidden">
     <label for="usernameLogin">username:</label>
     <input type="text" class="username" id="username"></input>
     <label for="passwordLogin">password:</label>
@@ -23,42 +22,43 @@
     <button class="login-button">login</button>
     <p class="login-error"></p>
   </section>
-  <div class="main-img">
+  <div class="main-img hidden">
     <img src="./images/overlook-main.jpg" alt="">
   </div>
-   <main class="home hidden">
-     <section class="homeBanner hidden">
+   <main class="home">
+     <section class="homeBanner">
        <div class="main-title">
-         <h2>hi there, user</h2>
+         <h2>hi there, <span id="user">user</span></h2>
        </div>
        <ul class="nav-links">
-         <li><i class="fas fa-calendar-check"></i>book a room</li>
-         <li><i class="fas fa-suitcase"></i>upcoming stays</li>
-         <li><i class="fas fa-thumbs-up"></i>previous stays</li>
-         <li><i class="fas fa-dollar-sign"></i>total spent</li>
+         <li id="bookRoomLink"><i class="fas fa-calendar-check"></i>book a room</li>
+         <li id="upcomingStaysLink"><i class="fas fa-suitcase"></i>upcoming stays</li>
+         <li id="previousStaysLink"><i class="fas fa-thumbs-up"></i>previous stays</li>
+         <li id="totalSpentLink"><i class="fas fa-dollar-sign"></i>total spent</li>
        </ul>
      </section>
-     <section class="bookRoom hidden">
+     <section class="book-room hidden" id="bookRoom">
        <form>
-         <section class="new-stay">
-           <h3>stay with us</h3>
-           <label for="new-stay-date">select a date:</label>
-           <input type="date" id="new-stay-date" name="new-stay-date" title="You must select a date for your trip">
-           <label for="new-stay-type">select a room type:</label>
-           <select class="room-type-search">
-             <option selected="selected" value="All Available Rooms">available rooms</option>
-             <option value="Single Room">single room</option>
-             <option value="Suite">suite</option>
-             <option value="Junior Suite">junior suite</option>
-             <option value="Residential Suite">residential suite</option>
+         <h3>stay with us</h3>
+         <section class="book-room-section">
+           <label for="book-room-date">select a date:</label>
+           <input type="date" class="date" id="bookRoomDate" name="book-room-date" title="You must select a date for your trip">
+           <label for="book-room-type">select a room type:</label>
+           <select class="room-type-search" id="roomTypes">
+             <option selected="selected" value="All Available Rooms">All Rooms</option>
+             <option value="single room">Single Room</option>
+             <option value="suite">Suite</option>
+             <option value="junior suite">Junior Suite</option>
+             <option value="residential suite">Residential Suite</option>
            </select>
          </section>
+         <button type="button" name="button" class="search-rooms-btn" id="searchBtn">search</button>
        </form>
      </section>
-     <section class="availableRooms hidden"></section>
-     <section class="upcomingStays hidden"></section>
-     <section class="previousStays hidden"></section>
-     <section class="totalSpent hidden"></section>
+     <section class="available-rooms hidden" id="availableRooms"></section>
+     <section class="upcoming-stays hidden" id="upcomingStays"></section>
+     <section class="previous-stays hidden" id="previousStays"></section>
+     <section class="totalSpent hidden" id="totalSpent"></section>
   </main>
   <script src="bundle.js"></script>
 </body>

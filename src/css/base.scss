@@ -39,14 +39,40 @@ h3 {
   font-family: $main-font;
   font-weight: 500;
   font-style: italic;
+  text-align: center;
+  font-size: 2em;
+}
+
+ul {
+  display: flex;
 }
 
 li {
   list-style: none;
+  padding: 1em;
+  font-size: 1.25em;
+}
+
+li:hover {
+  cursor: pointer;
 }
 
 section {
   background-color: white;
+}
+
+.book-room {
+  display: flex;
+  justify-content: center;
+  border: .5em solid black;
+  padding: 1em;
+  align-items: center;
+}
+
+.book-room-section {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
 }
 
 header {
@@ -59,6 +85,18 @@ article {
 
 label, input {
   display: block;
+  font-size: .75em;
+  font-family: 'Montserrat'
+}
+
+.room-type-search {
+  margin: 1em;
+  font-size: .75em;
+  font-family: 'Montserrat';
+}
+
+.date {
+  font-size: .8em;
 }
 
 img {
